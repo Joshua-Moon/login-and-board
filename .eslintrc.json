@@ -1,0 +1,27 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended", // 타입스크립트 추천 룰셋
+    "plugin:prettier/recommended", // eslint의 포매팅 기능을 prettier로 사용함. 항상 마지막에 세팅 되어야 함. - eslint-config-prettier
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018, // 최신 문법 지원
+    "sourceType": "module" // 모듈 시스템 사용시
+  },
+  "rules": {
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "{}": false,
+          "object": false
+        }
+      }
+    ]
+  },
+  "settings": {}
+}

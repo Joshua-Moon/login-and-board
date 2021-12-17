@@ -1,0 +1,23 @@
+FROM node:16-buster-slim
+
+WORKDIR /app
+
+COPY src/ /app/src
+COPY common.dockerignore /app/common.dockerignore
+COPY tsconfig.json /app/tsconfig.json
+COPY proj.config.js /app/proj.config.js
+COPY package.json /app/package.json
+COPY pnpm-lock.yaml /app/pnpm-lock.yaml
+COPY process.config.js /app/process.config.js
+
+RUN npm install -g pm2
+RUN npm install -g pnpm@6.7
+RUN pnpm install
+RUN pnpm build
+RUN pnpm prune --production
+RUN rm -rf src
+
+ENV NODE_ENV=prod
+ENV TARGET_LANG=js
+
+CMD ["pm2-runtime", "start", "process.config.js"]

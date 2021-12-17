@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./proxy/nginx.prod.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+  app:
+    container_name: login-and-board-web-api-prod
+    image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+    env_file:
+      - prod.env
+    ports:
+      - '3000:3000'
