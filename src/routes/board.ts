@@ -22,8 +22,7 @@ boardRouter.post('/boards', async (req: Request, res: Response) => {
 
 boardRouter.put('/boards', async (req: Request, res: Response) => {
   const input = {
-    ...req.body,
-    created_by: req.body.executedBy.id
+    ...req.body
   }
   const boardId = await boardController.update(input)
   if (isFail(boardId)) {
@@ -48,7 +47,7 @@ boardRouter.get('/boards', async (req: Request, res: Response) => {
   const orderType = req.query.orderType
   const cursor = req.query.cursor
   const windowSize = req.query.windowSize
-  const targetDomain = req.query.targetDomain
+  const category = req.query.category
   const createdBy = req.query?.id ?? ''
 
   const queryOptions = {
@@ -56,7 +55,7 @@ boardRouter.get('/boards', async (req: Request, res: Response) => {
     orderType: orderType,
     cursor: cursor,
     windowSize: windowSize,
-    target_domain: targetDomain,
+    category: category,
     created_by: createdBy
   }
 
