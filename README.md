@@ -2,12 +2,10 @@
 
 ```bash
 # docker build
-docker compose build # docker 최신 버전 (>=20.10.0 )
-docker-compose build
+./scripts/dev/docker-compose-build
 
 # docker compose 사용
-docker compose up -d # docker 최신 버전 (>=20.10.0 )
-docker-compose up -d
+./scripts/dev/docker-compose-up
 
 # docker 컨테이너 접속
 docker attach <컨테이너 id>
