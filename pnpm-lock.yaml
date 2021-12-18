@@ -7,6 +7,7 @@ specifiers:
   '@types/cors': ^2.8.12
   '@types/express': ^4.17.13
   '@types/mocha': ^9.0.0
+  '@types/nanoid': ^3.0.0
   '@types/node': ^16.9.6
   '@types/uuid': ^8.3.1
   '@typescript-eslint/eslint-plugin': ^4.31.2
@@ -14,6 +15,7 @@ specifiers:
   body-parser: ^1.19.0
   chai: ^4.3.4
   cors: ^2.8.5
+  dotenv: ^10.0.0
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
@@ -22,6 +24,7 @@ specifiers:
   husky: ^7.0.2
   lint-staged: ^11.1.2
   mocha: ^9.1.1
+  nanoid: ^3.1.25
   node: ^16.9.1
   nodemon: ^2.0.13
   nyc: ^15.1.0
@@ -29,16 +32,20 @@ specifiers:
   prettier: ^2.4.1
   ts-node: ^10.2.1
   typeorm: ^0.2.37
+  typeorm-extension: ^0.2.9
   typescript: ^4.5.4
   uuid: ^8.3.2
 
 dependencies:
   body-parser: 1.19.1
   cors: 2.8.5
+  dotenv: 10.0.0
   express: 4.17.2
   fast-clone: 1.5.13
+  nanoid: 3.1.25
   pg: 8.7.1
   typeorm: 0.2.41_pg@8.7.1
+  typeorm-extension: 0.2.9_pg@8.7.1
   uuid: 8.3.2
 
 devDependencies:
@@ -48,6 +55,7 @@ devDependencies:
   '@types/cors': 2.8.12
   '@types/express': 4.17.13
   '@types/mocha': 9.0.0
+  '@types/nanoid': 3.0.0
   '@types/node': 16.11.14
   '@types/uuid': 8.3.3
   '@typescript-eslint/eslint-plugin': 4.33.0_3289a875d95a672b97ebf589745c66ef
@@ -789,6 +797,16 @@ packages:
       }
     dev: true
 
+  /@types/nanoid/3.0.0:
+    resolution:
+      {
+        integrity: sha512-UXitWSmXCwhDmAKe7D3hNQtQaHeHt5L8LO1CB8GF8jlYVzOv5cBWDNqiJ+oPEWrWei3i3dkZtHY/bUtd0R/uOQ==
+      }
+    deprecated: This is a stub types definition. nanoid provides its own type definitions, so you do not need this installed.
+    dependencies:
+      nanoid: 3.1.25
+    dev: true
+
   /@types/node/16.11.14:
     resolution:
       {
@@ -1399,6 +1417,16 @@ packages:
     engines: { node: '>=6' }
     dev: true
 
+  /camel-case/4.1.2:
+    resolution:
+      {
+        integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==
+      }
+    dependencies:
+      pascal-case: 3.1.2
+      tslib: 2.3.1
+    dev: false
+
   /camelcase-keys/6.2.2:
     resolution:
       {
@@ -1433,6 +1461,17 @@ packages:
         integrity: sha512-4udbs9bc0hfNrcje++AxBuc6PfLNHwh3PO9kbwnfCQWyqtlzg3py0YgFu8jyRTTo85VAz4U+VLxSlID09vNtWA==
       }
     dev: true
+
+  /capital-case/1.0.4:
+    resolution:
+      {
+        integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==
+      }
+    dependencies:
+      no-case: 3.0.4
+      tslib: 2.3.1
+      upper-case-first: 2.0.2
+    dev: false
 
   /chai/4.3.4:
     resolution:
@@ -1470,6 +1509,26 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+
+  /change-case/4.1.2:
+    resolution:
+      {
+        integrity: sha512-bSxY2ws9OtviILG1EiY5K7NNxkqg/JnRnFxLtKQ96JaviiIxi7djMrSd0ECT9AC+lttClmYwKw53BWpOMblo7A==
+      }
+    dependencies:
+      camel-case: 4.1.2
+      capital-case: 1.0.4
+      constant-case: 3.0.4
+      dot-case: 3.0.4
+      header-case: 2.0.4
+      no-case: 3.0.4
+      param-case: 3.0.4
+      pascal-case: 3.1.2
+      path-case: 3.0.4
+      sentence-case: 3.0.4
+      snake-case: 3.0.4
+      tslib: 2.3.1
+    dev: false
 
   /check-error/1.0.2:
     resolution: { integrity: sha1-V00xLt2Iu13YkS6Sht1sCu1KrII= }
@@ -1661,6 +1720,17 @@ packages:
       write-file-atomic: 3.0.3
       xdg-basedir: 4.0.0
     dev: true
+
+  /constant-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==
+      }
+    dependencies:
+      no-case: 3.0.4
+      tslib: 2.3.1
+      upper-case: 2.0.2
+    dev: false
 
   /content-disposition/0.5.4:
     resolution:
@@ -1979,6 +2049,16 @@ packages:
       esutils: 2.0.3
     dev: true
 
+  /dot-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==
+      }
+    dependencies:
+      no-case: 3.0.4
+      tslib: 2.3.1
+    dev: false
+
   /dot-prop/5.3.0:
     resolution:
       {
@@ -1988,6 +2068,14 @@ packages:
     dependencies:
       is-obj: 2.0.0
     dev: true
+
+  /dotenv/10.0.0:
+    resolution:
+      {
+        integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
+      }
+    engines: { node: '>=10' }
+    dev: false
 
   /dotenv/8.6.0:
     resolution:
@@ -2825,6 +2913,16 @@ packages:
     hasBin: true
     dev: true
 
+  /header-case/2.0.4:
+    resolution:
+      {
+        integrity: sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==
+      }
+    dependencies:
+      capital-case: 1.0.4
+      tslib: 2.3.1
+    dev: false
+
   /highlight.js/10.7.3:
     resolution:
       {
@@ -3501,6 +3599,15 @@ packages:
       wrap-ansi: 6.2.0
     dev: true
 
+  /lower-case/2.0.2:
+    resolution:
+      {
+        integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==
+      }
+    dependencies:
+      tslib: 2.3.1
+    dev: false
+
   /lowercase-keys/1.0.1:
     resolution:
       {
@@ -3772,7 +3879,6 @@ packages:
       }
     engines: { node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1 }
     hasBin: true
-    dev: true
 
   /natural-compare/1.4.0:
     resolution: { integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc= }
@@ -3784,6 +3890,16 @@ packages:
         integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
       }
     engines: { node: '>= 0.6' }
+    dev: false
+
+  /no-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==
+      }
+    dependencies:
+      lower-case: 2.0.2
+      tslib: 2.3.1
     dev: false
 
   /node-bin-setup/1.0.6:
@@ -4091,6 +4207,16 @@ packages:
       }
     dev: false
 
+  /param-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==
+      }
+    dependencies:
+      dot-case: 3.0.4
+      tslib: 2.3.1
+    dev: false
+
   /parent-module/1.0.1:
     resolution:
       {
@@ -4143,6 +4269,26 @@ packages:
         integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
       }
     engines: { node: '>= 0.8' }
+    dev: false
+
+  /pascal-case/3.1.2:
+    resolution:
+      {
+        integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==
+      }
+    dependencies:
+      no-case: 3.0.4
+      tslib: 2.3.1
+    dev: false
+
+  /path-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-qO4qCFjXqVTrcbPt/hQfhTQ+VhFsqNKOPtytgNKkKxSoEp3XPUQ8ObFuePylOIok5gjn69ry8XiULxCwot3Wfg==
+      }
+    dependencies:
+      dot-case: 3.0.4
+      tslib: 2.3.1
     dev: false
 
   /path-exists/4.0.0:
@@ -4804,6 +4950,17 @@ packages:
       statuses: 1.5.0
     dev: false
 
+  /sentence-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-8LS0JInaQMCRoQ7YUytAo/xUu5W2XnQxV2HI/6uM6U7CITS1RqPElr30V6uIqyMKM9lJGRVFy5/4CuzcixNYSg==
+      }
+    dependencies:
+      no-case: 3.0.4
+      tslib: 2.3.1
+      upper-case-first: 2.0.2
+    dev: false
+
   /serialize-javascript/6.0.0:
     resolution:
       {
@@ -4904,6 +5061,16 @@ packages:
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
     dev: true
+
+  /snake-case/3.0.4:
+    resolution:
+      {
+        integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==
+      }
+    dependencies:
+      dot-case: 3.0.4
+      tslib: 2.3.1
+    dev: false
 
   /source-map-support/0.5.21:
     resolution:
@@ -5389,6 +5556,38 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
+  /typeorm-extension/0.2.9_pg@8.7.1:
+    resolution:
+      {
+        integrity: sha512-DDNIKFK7fThY59Y/Ai4bZ7SNPtCkiCLcfRqo0kNWmvhqU4ToV9RFnlyetalfR+J/iIPssHico26yvjw6PEex1w==
+      }
+    hasBin: true
+    dependencies:
+      change-case: 4.1.2
+      glob: 7.2.0
+      minimatch: 3.0.4
+      typeorm: 0.2.41_pg@8.7.1
+      typescript: 4.5.4
+      yargs: 17.3.0
+    transitivePeerDependencies:
+      - '@sap/hana-client'
+      - better-sqlite3
+      - hdb-pool
+      - ioredis
+      - mongodb
+      - mssql
+      - mysql2
+      - oracledb
+      - pg
+      - pg-native
+      - pg-query-stream
+      - redis
+      - sql.js
+      - sqlite3
+      - supports-color
+      - typeorm-aurora-data-api-driver
+    dev: false
+
   /typeorm/0.2.41_pg@8.7.1:
     resolution:
       {
@@ -5471,7 +5670,6 @@ packages:
       }
     engines: { node: '>=4.2.0' }
     hasBin: true
-    dev: true
 
   /undefsafe/2.0.5:
     resolution:
@@ -5525,6 +5723,24 @@ packages:
       semver-diff: 3.1.1
       xdg-basedir: 4.0.0
     dev: true
+
+  /upper-case-first/2.0.2:
+    resolution:
+      {
+        integrity: sha512-514ppYHBaKwfJRK/pNC6c/OxfGa0obSnAl106u97Ed0I625Nin96KAjttZF6ZL3e1XLtphxnqrOi9iWgm+u+bg==
+      }
+    dependencies:
+      tslib: 2.3.1
+    dev: false
+
+  /upper-case/2.0.2:
+    resolution:
+      {
+        integrity: sha512-KgdgDGJt2TpuwBUIjgG6lzw2GWFRCW9Qkfkiv0DxqHHLYJHmtmdUIKcZd8rHgFSjopVTlw6ggzCm1b8MFQwikg==
+      }
+    dependencies:
+      tslib: 2.3.1
+    dev: false
 
   /uri-js/4.4.1:
     resolution:
