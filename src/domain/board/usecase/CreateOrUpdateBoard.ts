@@ -9,7 +9,7 @@ import {
 } from '../../../core'
 import { Usecase, ValidationError, TypeOrmConnection } from '../../common'
 import { Board } from '../entity'
-import { BoardCategory, isValidBoardCategory } from '../../../catalog'
+import { BoardCategory, isValidBoardCategory } from '../../catalog'
 
 type Input = {
   id?: string

@@ -1,6 +1,6 @@
 import { Connection, TypeORMError } from 'typeorm'
 import { buildPaginator } from 'typeorm-cursor-pagination'
-import { BoardCategory, isValidBoardCategory } from '../../../catalog'
+import { BoardCategory, isValidBoardCategory } from '../../catalog'
 
 import { Fail, fail, guardSomeObject, hasOwnProperty } from '../../../core'
 import { Usecase, ValidationError } from '../../common'

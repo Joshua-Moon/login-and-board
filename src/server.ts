@@ -23,5 +23,6 @@ app.get('/health', (req: Request, res: Response) => {
 })
 
 app.use('/api', router.boardRouter)
+app.use('/api', router.accountRouter)
 
 app.listen(PORT, HOST, () => console.log(`PORT:${PORT} 서버 구동중...`))
