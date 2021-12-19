@@ -27,8 +27,6 @@ module.exports = {
   logging: ['warn', 'error'],
   cache: true,
   entities: [entityGlob(projectConfig.__TARGET_LANG__)],
-  seeds: ['src/helper/seeds/**/*.seed.ts'],
-  factories: ['src/helper/factories/**/*.factory.ts'],
   cli: {
     migrationsDir: 'src/migration'
   }

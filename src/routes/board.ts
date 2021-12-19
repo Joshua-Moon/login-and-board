@@ -1,16 +1,18 @@
-import express, { Request, Response, NextFunction, Router } from 'express'
+import express, { Request, Response, Router } from 'express'
 
 import { BoardController } from '../controller'
 import { isFail } from '../core'
 
 import { logger } from '../external/logger'
+import { profileJWT } from '../middleware/jwtAuth'
 
 export const boardRouter: Router = express.Router()
 const boardController = new BoardController()
 
-boardRouter.post('/boards', async (req: Request, res: Response) => {
+boardRouter.post('/boards', profileJWT, async (req: Request, res: Response) => {
   const input = {
-    ...req.body
+    ...req.body,
+    created_by: req.body.executedBy.id
   }
   const boardId = await boardController.create(input)
   if (isFail(boardId)) {
@@ -20,9 +22,10 @@ boardRouter.post('/boards', async (req: Request, res: Response) => {
   return res.status(200).json(boardId)
 })
 
-boardRouter.put('/boards', async (req: Request, res: Response) => {
+boardRouter.put('/boards', profileJWT, async (req: Request, res: Response) => {
   const input = {
-    ...req.body
+    ...req.body,
+    created_by: req.body.executedBy.id
   }
   const boardId = await boardController.update(input)
   if (isFail(boardId)) {
@@ -48,7 +51,7 @@ boardRouter.get('/boards', async (req: Request, res: Response) => {
   const cursor = req.query.cursor
   const windowSize = req.query.windowSize
   const category = req.query.category
-  const createdBy = req.query?.id ?? ''
+  const createdBy = req.query?.profileId ?? ''
 
   const queryOptions = {
     orderKey: orderKey,
@@ -67,17 +70,21 @@ boardRouter.get('/boards', async (req: Request, res: Response) => {
   return res.status(200).json(boards)
 })
 
-boardRouter.delete('/boards', async (req: Request, res: Response) => {
-  const input = {
-    ...req.body,
-    created_by: req.query.id
+boardRouter.delete(
+  '/boards',
+  profileJWT,
+  async (req: Request, res: Response) => {
+    const input = {
+      ...req.body,
+      created_by: req.query.id
+    }
+    const successMessage = await boardController.delete(input)
+    if (isFail(successMessage)) {
+      logger.error(
+        `${successMessage.message} - ${req.originalUrl} - ${req.method}`
+      )
+      return res.status(successMessage.status ?? 400).json(successMessage)
+    }
+    return res.status(200).json(successMessage)
   }
-  const successMessage = await boardController.delete(input)
-  if (isFail(successMessage)) {
-    logger.error(
-      `${successMessage.message} - ${req.originalUrl} - ${req.method}`
-    )
-    return res.status(successMessage.status ?? 400).json(successMessage)
-  }
-  return res.status(200).json(successMessage)
-})
+)
